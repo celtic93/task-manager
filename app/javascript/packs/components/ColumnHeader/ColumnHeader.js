@@ -16,6 +16,8 @@ function ColumnHeader({ column, onLoadMore }) {
     meta: { totalCount, currentPage },
   } = column;
 
+  console.log(column)
+
   const count = cards.length;
 
   const handleLoadMore = () => onLoadMore(id, currentPage + 1);
@@ -35,10 +37,13 @@ function ColumnHeader({ column, onLoadMore }) {
 }
 
 ColumnHeader.propTypes = {
-  id: PropTypes.string,
-  title: PropTypes.string,
-  cards: PropTypes.arrayOf(PropTypes.object),
-  meta: PropTypes.shape(),
+  column: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    cards: PropTypes.arrayOf(PropTypes.shape()),
+    meta: PropTypes.shape(),
+  }).isRequired,
+  onLoadMore: PropTypes.func.isRequired,
 };
 
 export default ColumnHeader;
