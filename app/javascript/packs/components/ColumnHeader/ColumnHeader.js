@@ -16,8 +16,6 @@ function ColumnHeader({ column, onLoadMore }) {
     meta: { totalCount, currentPage },
   } = column;
 
-  console.log(column)
-
   const count = cards.length;
 
   const handleLoadMore = () => onLoadMore(id, currentPage + 1);
