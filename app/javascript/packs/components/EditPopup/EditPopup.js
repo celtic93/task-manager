@@ -12,6 +12,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
+import TaskPresenter from 'presenters/TaskPresenter';
+
 import Form from '../Form';
 
 import useStyles from './useStyles';
@@ -68,7 +70,7 @@ function EditPopup({
           title={
             isLoading
               ? 'Your task is loading. Please be patient.'
-              : `Task # ${task.id} [${task.name}]`
+              : TaskPresenter.cardTitle(task)
           }
         />
         <CardContent>
